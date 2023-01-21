@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-black text-slate-400">
-        Ghostwriter
+        <p className="font-serif text-6xl">Ghostwriter</p>
       </main>
     </>
   );
