@@ -8,6 +8,9 @@ module.exports = {
         sans: ["var(--font-josefinSans)", ...fontFamily.sans],
         serif: ["var(--font-josefinSlab)", ...fontFamily.serif],
       },
+      keyframes: {
+        typewriter: {},
+      },
     },
   },
   plugins: [],

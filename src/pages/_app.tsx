@@ -7,6 +7,7 @@ import { Josefin_Sans, Josefin_Slab } from "@next/font/google";
 import { api } from "../utils/api";
 
 import "../styles/globals.css";
+import { Navbar } from "../components/Navbar";
 
 const josefinSans = Josefin_Sans({
   subsets: ["latin"],
@@ -25,8 +26,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <main
-        className={`${josefinSlab.variable} font-serif ${josefinSans.variable}`}
+        className={`${josefinSlab.variable} font-serif ${josefinSans.variable} text-slate-400`}
       >
+        <Navbar />
         <Component {...pageProps} />
       </main>
     </SessionProvider>
