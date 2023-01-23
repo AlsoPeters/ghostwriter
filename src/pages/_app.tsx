@@ -26,7 +26,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <main
-        className={`${josefinSlab.variable} font-serif ${josefinSans.variable} text-slate-400`}
+        className={`${josefinSlab.variable} font-sans ${josefinSans.variable} text-slate-400`}
       >
         <Navbar />
         <Component {...pageProps} />
