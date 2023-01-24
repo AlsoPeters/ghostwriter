@@ -1,21 +1,36 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 import { api } from "../utils/api";
+
+import { faker } from "@faker-js/faker";
 
 export default function create() {
   const createThoughtMutation = api.thoughts.createThought.useMutation();
 
   const [thought, setThought] = useState("");
   const [thoughtTitle, setThoughtTitle] = useState("");
+  const [ghostwriter, setGhostwriter] = useState("");
+  const router = useRouter();
 
   async function handleSubmitWriting(e: React.FormEvent) {
     e.preventDefault();
+
     await createThoughtMutation.mutateAsync({
+      ghostwriter,
       thoughtTitle,
       thought,
     });
+    router.push("/thoughts");
   }
+
+  useEffect(() => {
+    const randomName = faker.name.fullName();
+
+    setGhostwriter(randomName);
+  }, []);
+
   return (
     <>
       <Head>
@@ -28,6 +43,7 @@ export default function create() {
           onSubmit={handleSubmitWriting}
           className="flex w-1/2 flex-col gap-10 px-10 text-2xl"
         >
+          <h1>Hello, {ghostwriter}</h1>
           <div className="flex flex-col">
             <label className="" htmlFor="subject">
               What will you name this?

@@ -67,6 +67,7 @@ model VerificationToken {
 
 model Thought {
     id           String @id @default(cuid())
+    ghostwriter  String
     thoughtTitle String
     thought      String
 }

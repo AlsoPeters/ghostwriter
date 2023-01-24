@@ -6,6 +6,7 @@ export const thoughtsRouter = createTRPCRouter({
   createThought: publicProcedure
     .input(
       z.object({
+        ghostwriter: z.string(),
         thoughtTitle: z.string(),
         thought: z.string(),
       })
